@@ -20,7 +20,7 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },
-  "homepage": "https://Atharva-211.github.io",
+  "homepage": "https://Atharva-211.github.io/Notes_taking_App",
   "eslintConfig": {
     "extends": [
       "react-app",
