@@ -5,6 +5,17 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* background-image: url('./images/image.png'); /* Adjusted path to your image */
+  /* background-size: cover;
+  background-repeat: no-repeat; */ 
+
+
+  display: flex; /* Use flexbox */
+  justify-content: center; /* Center horizontally */
+  align-items: top; /* Center vertically */
+  min-height: 100vh; /* Ensure full viewport height */
+  margin: 0; /* Remove default margin */
+  background-color: rgb(184, 155, 155);  
 }
 
 code {

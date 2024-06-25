@@ -1,25 +1,48 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import TopicInput from './TopicInput';
+import TopicDisplay from './TopicDisplay';
 
-function App() {
+function NoteTakingApp() {
+  const [topics, setTopics] = useState([]);
+
+  const handleAddTopic = (topicName) => {
+    setTopics([...topics, { name: topicName, notes: [] }]);
+  };
+
+  const handleAddNote = (topic, newNote) => {
+    const updatedTopics = topics.map((item) => {
+      if (item === topic) {
+        return { ...item, notes: [...item.notes, newNote] };
+      }
+      return item;
+    });
+    setTopics(updatedTopics);
+  };
+
+  const handleDeleteNote = (topicIndex, noteIndex) => {
+    const updatedTopics = [...topics];
+    updatedTopics[topicIndex].notes.splice(noteIndex, 1);
+    setTopics(updatedTopics);
+  };
+
+  const handleDeleteTopic = (topicIndex) => {
+    const updatedTopics = [...topics];
+    updatedTopics.splice(topicIndex, 1);
+    setTopics(updatedTopics);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div >
+      <h1>Notes taking app</h1>
+      <TopicInput onAddTopic={handleAddTopic} />
+      <TopicDisplay
+        topics={topics}
+        onAddNote={handleAddNote}
+        onDeleteNote={handleDeleteNote}
+        onDeleteTopic={handleDeleteTopic} 
+      />
     </div>
   );
 }
 
-export default App;
+export default NoteTakingApp;
