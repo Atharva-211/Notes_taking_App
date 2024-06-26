@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './TopicDisplay.css'; // Import the CSS file
 
 function TopicInput({ onAddTopic }) {
   const [inputTopic, setInputTopic] = useState('');
@@ -23,7 +22,7 @@ function TopicInput({ onAddTopic }) {
         onChange={handleTopicChange}
         placeholder="Enter topic name..."
       />
-      <button onClick={handleAddTopic} class="button-55">Add Topic</button>
+      <button onClick={handleAddTopic} className="button-55">Add Topic</button>
     </div>
   );
 }

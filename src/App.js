@@ -1,21 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import TopicInput from './TopicInput';
 import TopicDisplay from './TopicDisplay';
 
 function NoteTakingApp() {
-  const [topics, setTopics] = useState([]);
+  // Initialize topics state with data from localStorage or empty array
+  const [topics, setTopics] = useState(() => {
+    const storedTopics = localStorage.getItem('topics');
+    return storedTopics ? JSON.parse(storedTopics) : [];
+  });
+
+  // Update localStorage whenever topics state changes
+  useEffect(() => {
+    localStorage.setItem('topics', JSON.stringify(topics));
+  }, [topics]);
 
   const handleAddTopic = (topicName) => {
-    setTopics([...topics, { name: topicName, notes: [] }]);
+    const newTopic = { name: topicName, notes: [] };
+    setTopics([...topics, newTopic]);
   };
 
   const handleAddNote = (topic, newNote) => {
-    const updatedTopics = topics.map((item) => {
-      if (item === topic) {
-        return { ...item, notes: [...item.notes, newNote] };
-      }
-      return item;
-    });
+    const updatedTopics = topics.map((item) =>
+      item === topic ? { ...item, notes: [newNote, ...item.notes] } : item
+    );
     setTopics(updatedTopics);
   };
 
@@ -32,14 +39,15 @@ function NoteTakingApp() {
   };
 
   return (
-    <div >
+    <div>
       <h1>Notes taking app</h1>
       <TopicInput onAddTopic={handleAddTopic} />
       <TopicDisplay
         topics={topics}
+        setTopics={setTopics}
         onAddNote={handleAddNote}
         onDeleteNote={handleDeleteNote}
-        onDeleteTopic={handleDeleteTopic} 
+        onDeleteTopic={handleDeleteTopic}
       />
     </div>
   );
