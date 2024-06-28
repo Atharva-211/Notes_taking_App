@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import TopicInput from './TopicInput';
 import TopicDisplay from './TopicDisplay';
+import './index.css';
 
 function NoteTakingApp() {
   // Initialize topics state with data from localStorage or empty array
@@ -40,7 +41,8 @@ function NoteTakingApp() {
 
   return (
     <div>
-      <h1>Notes taking app</h1>
+      <img className="slide1691Item" alt="" src={`${process.env.PUBLIC_URL}/group-1.svg`} />
+      <div className="notesTakingApp">Notes taking app</div>
       <TopicInput onAddTopic={handleAddTopic} />
       <TopicDisplay
         topics={topics}

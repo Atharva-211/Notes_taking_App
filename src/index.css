@@ -1,0 +1,64 @@
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower:wght@400&display=swap");
+
+:root {
+  /* fonts */
+  --font-indie-flower: "Indie Flower";
+
+  /* font sizes */
+  --font-size-51xl: 70px;
+  --font-size-11xl: 30px;
+  --font-size-31xl: 50px;
+  --font-size-21xl: 40px;
+  --font-size-26xl: 45px;
+
+  /* colors */
+  --color-black: #000;
+  --color-gray: rgba(0, 0, 0, 0.72);
+  --color-gainsboro: #d9d9d9;
+  --color-white: #fff;
+  --color-sienna: #996749;
+
+  /* border radiuses */
+  --br-31xl: 50px;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: var(--font-size-31xl);
+  color: var(--color-black);
+  font-family: var(--font-indie-flower);
+  background: linear-gradient(105.65deg, #c4c4c4, #5e5e5e);
+}
+
+
+.notesTakingApp {
+  position: absolute;
+  top: 0;
+  left: 9px;
+  font-size: 60px;
+  background: linear-gradient(-88.91deg, #000, #666);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  width: 432px;
+  height: 68px;
+  cursor: pointer; /* Ensure pointer cursor to indicate clickability */
+}
+
+.slide1691Item {
+  position: absolute;
+  bottom: -26%; /* Fix to the bottom */
+  right: -14%; /* Fix to the right */
+  width: 701.5px; 
+  height: 694.8px;
+}

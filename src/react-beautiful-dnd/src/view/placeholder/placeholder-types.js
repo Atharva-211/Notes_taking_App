@@ -11,6 +11,6 @@ export type PlaceholderStyle = {|
   marginLeft: number,
   flexShrink: '0',
   flexGrow: '0',
-  pointerEvents: 'none',
+ // pointerEvents: 'none',
   transition: string,
 |};

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './TopicInput.css';
 
 function TopicInput({ onAddTopic }) {
   const [inputTopic, setInputTopic] = useState('');
@@ -15,7 +16,22 @@ function TopicInput({ onAddTopic }) {
   };
 
   return (
-    <div>
+    <div >
+      <div className="rectangleParent">
+        <div className="newTopic">New Topic</div>
+
+        <input 
+          id="groupItem" 
+          type="text"
+          value={inputTopic}
+          onChange={handleTopicChange}
+          placeholder="Topic name..."
+        />
+
+
+      <button onClick={handleAddTopic} className="groupInner">+</button>
+       
+      </div>
       <input
         type="text"
         value={inputTopic}

@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import './TopicDisplay.css';
+import styles from'./TopicDisplay.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt, faPen } from '@fortawesome/free-solid-svg-icons';
 import Modal from 'react-modal';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function TopicDisplay({ topics, setTopics, onDeleteNote, onDeleteTopic }) {
   const [selectedTopicIndex, setSelectedTopicIndex] = useState(null);
-  const [newNote, setNewNote] = useState('');
+  const [noteTitle, setNoteTitle] = useState('');
+  const [noteContent, setNoteContent] = useState('');
+  const [noteModalIsOpen, setNoteModalIsOpen] = useState(false);
+  const [isEditingNote, setIsEditingNote] = useState(false);
   const [editedNoteIndex, setEditedNoteIndex] = useState(null);
-  const [editedNoteContent, setEditedNoteContent] = useState('');
   const [topicInput, setTopicInput] = useState('');
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [noteModalIsOpen, setNoteModalIsOpen] = useState(false);
 
   useEffect(() => {
     const storedTopics = JSON.parse(localStorage.getItem('topics'));
@@ -26,26 +29,32 @@ function TopicDisplay({ topics, setTopics, onDeleteNote, onDeleteTopic }) {
 
   const handleTopicClick = (index) => {
     setSelectedTopicIndex((prevIndex) => (prevIndex === index ? null : index));
-    setNewNote('');
+    setNoteTitle('');
+    setNoteContent('');
     setEditedNoteIndex(null);
-    setEditedNoteContent('');
   };
 
-  const handleAddNoteClick = () => {
-    setNewNote('');
-    setEditedNoteIndex(null);
-    setEditedNoteContent('');
+  const openAddNoteModal = () => {
+    setIsEditingNote(false);
+    setNoteTitle('');
+    setNoteContent('');
+    setNoteModalIsOpen(true);
   };
 
   const handleAddNote = () => {
-    if (newNote.trim() !== '' && selectedTopicIndex !== null) {
+    if (noteTitle.trim() === '') {
+      toast.error('Please enter a note title');
+      return;
+    }
+
+    if (noteContent.trim() !== '' && selectedTopicIndex !== null) {
       const updatedTopics = topics.map((topic, index) =>
         index === selectedTopicIndex
-          ? { ...topic, notes: [newNote, ...topic.notes] }
+          ? { ...topic, notes: [{ title: noteTitle, content: noteContent }, ...topic.notes] }
           : topic
       );
       setTopics(updatedTopics);
-      setNewNote('');
+      setNoteModalIsOpen(false);
     }
   };
 
@@ -66,27 +75,28 @@ function TopicDisplay({ topics, setTopics, onDeleteNote, onDeleteTopic }) {
     setSelectedTopicIndex(null);
   };
 
-  const handleEditNote = (noteIndex, noteContent) => {
+  const openEditNoteModal = (noteIndex, note) => {
+    setIsEditingNote(true);
     setEditedNoteIndex(noteIndex);
-    setEditedNoteContent(noteContent);
+    setNoteTitle(note.title);
+    setNoteContent(note.content);
     setNoteModalIsOpen(true);
   };
 
   const handleSaveEditedNote = () => {
-    if (editedNoteContent.trim() !== '' && selectedTopicIndex !== null) {
+    if (noteTitle.trim() !== '' && noteContent.trim() !== '' && selectedTopicIndex !== null) {
       const updatedTopics = topics.map((topic, index) =>
         index === selectedTopicIndex
           ? {
               ...topic,
               notes: topic.notes.map((note, idx) =>
-                idx === editedNoteIndex ? editedNoteContent : note
+                idx === editedNoteIndex ? { title: noteTitle, content: noteContent } : note
               ),
             }
           : topic
       );
       setTopics(updatedTopics);
       setEditedNoteIndex(null);
-      setEditedNoteContent('');
       setNoteModalIsOpen(false);
     }
   };
@@ -118,7 +128,7 @@ function TopicDisplay({ topics, setTopics, onDeleteNote, onDeleteTopic }) {
   };
 
   return (
-    <div>
+    <div className={styles.slide1691}>
       <h2>All Topics</h2>
       <ul>
         {topics.map((topic, topicIndex) => (
@@ -141,24 +151,19 @@ function TopicDisplay({ topics, setTopics, onDeleteNote, onDeleteTopic }) {
         <div className="topic-container">
           <h3>{topics[selectedTopicIndex].name}</h3>
           <div className="add-note-section">
-            <button className="add-note" onClick={handleAddNoteClick}>
+            <button className="add-note" onClick={openAddNoteModal}>
               Add Note
-            </button>
-            <textarea
-              value={newNote}
-              onChange={(e) => setNewNote(e.target.value)}
-              placeholder="Enter your note..."
-            />
-            <button className="submit-note" onClick={handleAddNote}>
-              Submit
             </button>
           </div>
           <div className="notes-list">
             {topics[selectedTopicIndex].notes.map((note, noteIndex) => (
               <div key={noteIndex} className="note-container">
-                <p className="note-content" onClick={() => handleEditNote(noteIndex, note)}>
-                  {note.split('\n').slice(0, 3).join('\n')}
-                  {note.split('\n').length > 3 && '... more'}
+                <p className="note-title" onClick={() => openEditNoteModal(noteIndex, note)}>
+                  {note.title}
+                </p>
+                <p className="note-content" onClick={() => openEditNoteModal(noteIndex, note)}>
+                  {note.content.split('\n').slice(0, 1).join('')}
+                  {note.content.split('\n').length > 2 && '... more'}
                 </p>
                 <div className="edit-buttons">
                   <button onClick={() => handleDeleteNote(selectedTopicIndex, noteIndex)}>
@@ -195,17 +200,28 @@ function TopicDisplay({ topics, setTopics, onDeleteNote, onDeleteTopic }) {
       <Modal
         isOpen={noteModalIsOpen}
         onRequestClose={() => setNoteModalIsOpen(false)}
-        contentLabel="Edit Note"
+        contentLabel={isEditingNote ? "Edit Note" : "Add Note"}
         ariaHideApp={false}
       >
-        <h2>Edit Note</h2>
-        <textarea
-          value={editedNoteContent}
-          onChange={(e) => setEditedNoteContent(e.target.value)}
+        <h2>{isEditingNote ? "Edit Note" : "Add Note"}</h2>
+        <input
+          type="text"
+          value={noteTitle}
+          onChange={(e) => setNoteTitle(e.target.value)}
+          placeholder="Enter note title..."
         />
-        <button onClick={handleSaveEditedNote}>Save</button>
+        <textarea
+          value={noteContent}
+          onChange={(e) => setNoteContent(e.target.value)}
+          placeholder="Enter your note..."
+        />
+        <button onClick={isEditingNote ? handleSaveEditedNote : handleAddNote}>
+          {isEditingNote ? "Save" : "Add"}
+        </button>
         <button onClick={() => setNoteModalIsOpen(false)}>Cancel</button>
       </Modal>
+
+      <ToastContainer position="top-right" autoClose={3000} hideProgressBar />
     </div>
   );
 }

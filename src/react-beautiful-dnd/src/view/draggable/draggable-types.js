@@ -32,7 +32,7 @@ export type DraggingStyle = {|
   // During a drop it prevents a draggable from being dragged.
   // canStartDrag() will prevent drags in some cases for non primary draggable.
   // It is also a minor performance optimisation
-  pointerEvents: 'none',
+//  pointerEvents: 'none',
 |};
 
 export type NotDraggingStyle = {|

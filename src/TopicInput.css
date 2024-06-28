@@ -1,0 +1,104 @@
+.rectangleParent {
+  position: absolute;
+  top: 0; /* Fix to the top */
+  right: 0; /* Fix to the right */
+  width: 533px;
+  height: 161px;
+  color: #fff;
+  border-radius: 0 0 0 50px;
+  background-color: #d9d9d9;
+}
+
+.newTopic {
+    position: absolute;
+    top: 8px;
+    left: 1px;
+    background: linear-gradient(180deg, #000, #666);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: inline-block;
+    width: 265.6px;
+    height: 59.6px;
+  }
+
+
+  #groupItem {
+    position: absolute;
+    top: 76.8px;
+    left: 9.8px;
+    border-radius: 0 0 0 50px;
+    width: 407.4px;
+    height: 73px;
+    background-color: #996749;
+    border: none;
+    box-sizing: border-box;
+    color: white;
+    padding-left: 30px;
+    font-size: 35px;
+    font-family: var(--font-indie-flower); /* Ensure it matches global font */
+    transition: box-shadow 0.3s ease, transform 0.2s ease; /* Smooth transition for shadow and scale */
+  }
+  
+  #groupItem:hover,
+  #groupItem:active {
+    box-shadow: 0 0 30px rgba(0, 0, 0, 3); /* Shadow effect on hover and active */
+    transform: scale(0.95); /* Scale effect on active */
+  }
+  
+  #groupItem::placeholder {
+    position: absolute;
+    left: 33px;
+    display: inline-block;
+    color: white;
+    opacity: 0.5;
+    font-size: 35px; /* Adjust as needed */
+    font-family: var(--font-indie-flower); /* Inherit global font */
+  }
+  
+
+  .groupInner {
+    position: absolute;
+    background-color: var(--color-sienna);
+    height: 73px;
+    top: 76.8px;
+    left: 429px;
+    width: 104px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 50px 50px 0; /* Rounded right edge to match input */
+  }
+  
+  .groupInner button {
+    border: none;
+    background: none;
+    color: white;
+    font-size: 35px;
+    cursor: pointer;
+    font-family: var(--font-indie-flower);
+    outline: none;
+    transition: text-shadow 0.3s ease, transform 0.2s ease; /* Transition for text shadow */
+  }
+  
+  .groupInner button:hover {
+    text-shadow: 0 0 30px rgba(0, 0, 0, 3); /* Shadow effect on hover and active */
+    transform: scale(0.95); /* Scale effect on active */
+  }
+  
+
+  .div,
+.topicName {
+  position: absolute;
+  top: 75px;
+  left: 25px;
+  display: inline-block;
+  width: 345px;
+  height: 54px;
+}
+.div {
+  top: 46px;
+  left: 429px;
+  font-size: 100px;
+  width: 84px;
+  height: 103px;
+}
