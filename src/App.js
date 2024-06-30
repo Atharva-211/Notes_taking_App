@@ -41,7 +41,7 @@ function NoteTakingApp() {
 
   return (
     <div>
-      <img className="slide1691Item" alt="" src={`${process.env.PUBLIC_URL}/group-1.svg`} />
+      
       <div className="notesTakingApp">Notes taking app</div>
       <TopicInput onAddTopic={handleAddTopic} />
       <TopicDisplay
@@ -51,6 +51,7 @@ function NoteTakingApp() {
         onDeleteNote={handleDeleteNote}
         onDeleteTopic={handleDeleteTopic}
       />
+      <img className="slide1691Item" alt="" src={`${process.env.PUBLIC_URL}/group-1.svg`} />
     </div>
   );
 }

@@ -1,9 +1,9 @@
 .rectangleGroup {
   position: absolute;
-  top: 114px;
   left: -3px;
+  bottom: 0px;
   width: 335px;
-  height: 966px;
+  height: 916px;
   font-size: var(--font-size-21xl);
   overflow: hidden; /* Ensure overflow is hidden for parent */
 }
@@ -57,11 +57,20 @@
   padding: 0;
   margin: 0;
   list-style-type: none;
+  /* Hide scrollbars */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
 }
 
+.topicsList::-webkit-scrollbar {
+  display: none; /* WebKit-based browsers */
+}
+
+
 .topic1Parent {
+  border-radius: 0 50px 50px 0;
   position: relative;
-  width: 320px;
+  width: 310px;
   height: 70px; /* Initial height to show only topic1 */
   overflow: hidden;
   transition: height 0.3s ease; /* Smooth transition for height */
@@ -94,4 +103,253 @@
 .topic1Parent:hover .d,
 .topic1Parent:hover .p {
   opacity: 1; /* Show elements on hover */
+}
+
+
+.notesSectionParent {
+  position: absolute;
+  top: 127px;
+  left: 373px;
+  width: 1230px;
+  height: 911px;
+  font-size: var(--font-size-51xl);
+}
+
+.notesSection {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: inline-block;
+  width: 476.9px;
+}
+
+.groupChild2,
+.groupDiv,
+.name {
+  position: absolute;
+}
+.name {
+  top: 0;
+  left: 49.2px;
+  display: inline-block;
+  width: 146.5px;
+}
+.groupDiv {
+  top: 91px;
+  left: 302px;
+  width: 670px;
+  height: 73px;
+  font-size: var(--font-size-31xl);
+  background: linear-gradient(92.45deg, #d9d9d9, #692a04);
+  border-radius: var(--br-31xl);
+}
+
+.groupParent {
+  position: fixed;
+  bottom: 0;
+  left: 500.1px;
+  width: 1200.9px;
+  height: 714px; /* Set a maximum height */
+  overflow-y: auto; /* Add vertical scrollbar when content overflows */
+  font-size: var(--font-size-11xl);
+  /* Hide scrollbars */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+}
+
+.groupParent::-webkit-scrollbar {
+  display: none; /* WebKit-based browsers */
+}
+
+
+.groupChild3 {
+  top: -20px;
+  border-radius: var(--br-31xl);
+  background-color: var(--color-gainsboro);
+  width: 1175.9px;
+  height: 124px;
+  margin-top: 20px;
+  position: relative; /* Ensure relative positioning */
+}
+
+.title {
+  top: 18px;
+  left: 36px;
+  width: 62.5px;
+  text-shadow: 1px 0 0#000, 0 1px 0#000, -1px 0 0#000, 0-1px 0#000;
+}
+.notes,
+.d2,
+.title {
+  position: absolute;
+  display: inline-block;
+}
+.notes {
+  top: 62px;
+  left: 36px;
+  color: var(--color-gray);
+  width: 631.8px;
+}
+.d2 {
+  top: 23px;
+  left: 969.3px;
+  font-size: var(--font-size-51xl);
+  width: 62.5px;
+}
+
+#addtopic {
+  top: 13px;
+  left: 500px;
+}
+
+#addtopic2 {
+  top: 70%;
+  left: 30%;
+}
+
+#addtopic3 {
+  top: 70%;
+  left: 55%;
+}
+
+#addtopic,
+#addtopic2,
+#addtopic3 {
+  position: absolute;
+  border-radius:50px 50px 50px 50px;
+  width: 160px;
+  height: 50px;
+  background-color: d9d9d9;
+  border: none;
+  box-sizing: border-box;
+  color: rgb(0, 0, 0);
+  outline: none;
+  font-size: 25px;
+  font-family: var(--font-indie-flower); /* Ensure it matches global font */
+  transition: box-shadow 0.3s ease, transform 0.2s ease; /* Smooth transition for shadow and scale */
+}
+
+#addtopic:hover,
+#addtopic:active,
+#addtopic2:hover,
+#addtopic2:active,
+#addtopic3:hover,
+#addtopic3:active {
+  box-shadow: 0 0 30px rgba(0, 0, 0, 3); /* Shadow effect on hover and active */
+  transform: scale(0.95); /* Scale effect on active */
+}
+
+
+.custom-modal,
+.custom-modal2{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: var(--font-size-31xl);
+  color: var(--color-black);
+  font-family: var(--font-indie-flower);
+  background: linear-gradient(105.65deg, #c4c4c4, #5e5e5e);
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.custom-modal {
+  width: 80%;
+  height: 80%;
+}
+
+.custom-modal2 {
+  width: 40%;
+  height: 40%;
+}
+
+
+#Anote {
+  top: 76.8px;
+  left: 9.8px;
+}
+
+#Anote2 {
+  top: 180px;
+  left: 25%;
+}
+
+
+#Anote2,
+#Anote {
+  position: absolute;
+  border-radius: 0 50px 0 50px;
+  width: 407.4px;
+  height: 73px;
+  background-color: #996749;
+  border: none;
+  box-sizing: border-box;
+  color: white;
+  outline: none;
+  padding-left: 30px;
+  font-size: 35px;
+  font-family: var(--font-indie-flower); /* Ensure it matches global font */
+  transition: box-shadow 0.3s ease, transform 0.2s ease; /* Smooth transition for shadow and scale */
+}
+
+#Anote:hover,
+#Anote2:hover,
+#Anote:active,
+#Anote2:active,
+#butt1:hover,
+#butt1:active  {
+  box-shadow: 0 0 30px rgba(0, 0, 0, 3); /* Shadow effect on hover and active */
+  transform: scale(0.95); /* Scale effect on active */
+}
+
+#Anote::placeholder,
+#Anote2::placeholder {
+  position: absolute;
+  left: 33px;
+  display: inline-block;
+  color: white;
+  opacity: 0.5;
+  font-size: 35px; /* Adjust as needed */
+  font-family: var(--font-indie-flower); /* Inherit global font */
+}
+
+
+#textarea{
+  position: fixed;
+  top: 206.8px;
+  left: 50px;
+  border-radius: 50px 50px 50px 50px;
+  width: 60%;
+  height: 600px;
+  /* background-color: #996749; */
+  border: none;
+  box-sizing: border-box;
+  /* color: white; */
+  outline: none;
+  padding-left: 30px;
+  padding-top: 30px;
+}
+
+.butt{
+  position: absolute;
+  right: 50px;
+}
+
+#butt1{
+  border-radius: 0 50px 0 50px;
+  width: 407.4px;
+  height: 73px;
+  background-color: #996749;
+  border: none;
+  box-sizing: border-box;
+  color: white;
+  outline: none;
+  padding-left: 30px;
+  font-size: 35px;
+  font-family: var(--font-indie-flower); /* Ensure it matches global font */
+  transition: box-shadow 0.3s ease, transform 0.2s ease; /* Smooth transition for shadow and scale */
 }
