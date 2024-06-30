@@ -33,6 +33,7 @@
     border: none;
     box-sizing: border-box;
     color: white;
+    outline: none;
     padding-left: 30px;
     font-size: 35px;
     font-family: var(--font-indie-flower); /* Ensure it matches global font */
@@ -63,42 +64,43 @@
     top: 76.8px;
     left: 429px;
     width: 104px;
+    border-radius: 0 0 0 0; /* Rounded right edge to match input */
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 0 50px 50px 0; /* Rounded right edge to match input */
+    color: white;
+    border: none;
   }
   
   .groupInner button {
     border: none;
     background: none;
-    color: white;
-    font-size: 35px;
+    font-size: 100px;
     cursor: pointer;
-    font-family: var(--font-indie-flower);
     outline: none;
-    transition: text-shadow 0.3s ease, transform 0.2s ease; /* Transition for text shadow */
+    transition:  box-shadow 0.3s ease; /* Transition for text shadow */
   }
   
-  .groupInner button:hover {
-    text-shadow: 0 0 30px rgba(0, 0, 0, 3); /* Shadow effect on hover and active */
-    transform: scale(0.95); /* Scale effect on active */
+  .groupInner:hover,
+  .groupInner:active {
+    box-shadow: 0 0 30px rgba(0, 0, 0, 3); /* Shadow effect on hover and active */
+    transform: scale(0.9); /* Scale effect on active */
   }
+  
   
 
-  .div,
-.topicName {
+  .div {
   position: absolute;
-  top: 75px;
-  left: 25px;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 345px;
+  color: white;
   height: 54px;
 }
 .div {
-  top: 46px;
-  left: 429px;
   font-size: 100px;
   width: 84px;
   height: 103px;
+  font-family: var(--font-indie-flower);
 }

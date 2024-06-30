@@ -4,7 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt, faPen } from '@fortawesome/free-solid-svg-icons';
 import Modal from 'react-modal';
 import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+
 
 function TopicDisplay({ topics, setTopics, onDeleteNote, onDeleteTopic }) {
   const [selectedTopicIndex, setSelectedTopicIndex] = useState(null);
@@ -129,22 +129,47 @@ function TopicDisplay({ topics, setTopics, onDeleteNote, onDeleteTopic }) {
 
   return (
     <div className={styles.slide1691}>
-      <h2>All Topics</h2>
-      <ul>
+
+<div className="rectangleGroup">
+  <div className="rectangleDiv"></div>
+  <div className="rectangleContainer">
+    <div className="groupChild1"></div>
+    <div className="topics">{`Topics `}</div>
+  </div>
+  <ul className="topicsList">
+    {topics.map((topic, topicIndex) => (
+      <li key={topicIndex} style={{ marginTop: '10px' }}>
+        <div onClick={() => handleTopicClick(topicIndex)} className="topic1Parent">
+          <div className="topic1"> {topic.name.length > 12 ? `${topic.name.slice(0, 12)}...` : topic.name}</div>
+          <div onClick={() => handleDeleteTopic(topicIndex)} className="d">
+            <FontAwesomeIcon icon={faTrashAlt} />
+          </div>
+          <div onClick={() => handleEditTopic(topicIndex)} className="p">
+            <FontAwesomeIcon icon={faPen} />
+          </div>
+        </div>
+      </li>
+    ))}
+  </ul>
+</div>
+
+
+
+      {/* <ul>
         {topics.map((topic, topicIndex) => (
           <li key={topicIndex}>
-            <button className="button-55" onClick={() => handleTopicClick(topicIndex)}>
+            <button onClick={() => handleTopicClick(topicIndex)}>
               {topic.name}
             </button>
-            <button className="button-55" onClick={() => handleDeleteTopic(topicIndex)}>
+            <button onClick={() => handleDeleteTopic(topicIndex)}>
               <FontAwesomeIcon icon={faTrashAlt} />
             </button>
-            <button className="button-55" onClick={() => handleEditTopic(topicIndex)}>
+            <button onClick={() => handleEditTopic(topicIndex)}>
               <FontAwesomeIcon icon={faPen} />
             </button>
           </li>
         ))}
-      </ul>
+      </ul> */}
 
       <h2>Notes Section</h2>
       {selectedTopicIndex !== null && (

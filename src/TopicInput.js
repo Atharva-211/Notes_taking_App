@@ -27,18 +27,8 @@ function TopicInput({ onAddTopic }) {
           onChange={handleTopicChange}
           placeholder="Topic name..."
         />
-
-
-      <button onClick={handleAddTopic} className="groupInner">+</button>
-       
+      <button onClick={handleAddTopic} className="groupInner"><div className="div">+</div></button>
       </div>
-      <input
-        type="text"
-        value={inputTopic}
-        onChange={handleTopicChange}
-        placeholder="Enter topic name..."
-      />
-      <button onClick={handleAddTopic} className="button-55">Add Topic</button>
     </div>
   );
 }
