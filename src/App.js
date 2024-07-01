@@ -51,7 +51,13 @@ function NoteTakingApp() {
         onDeleteNote={handleDeleteNote}
         onDeleteTopic={handleDeleteTopic}
       />
-      <img className="slide1691Item" alt="" src={`${process.env.PUBLIC_URL}/group-1.svg`} />
+      {/* <img
+  className="slide1691Item"
+  alt=""
+  src={`${process.env.PUBLIC_URL}/group-1.svg`}
+  style={{ pointerEvents: 'none' }}
+/> */}
+
     </div>
   );
 }

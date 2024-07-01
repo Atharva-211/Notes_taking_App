@@ -133,11 +133,12 @@ function TopicDisplay({ topics, setTopics }) {
 
   return (
     <div className={styles.slide1691}>
-      <div className="rectangleGroup">
-        <div className="rectangleDiv"></div>
+      <div className="rectangleDiv">
+        {/* <div className="rectangleDiv"></div> */}
         <div className="rectangleContainer">
-          <div className="groupChild1"></div>
+          <div className="groupChild1">
           <div className="topics">{`Topics `}</div>
+          </div>
         </div>
         <ul className="topicsList">
           {topics.map((topic, topicIndex) => (
@@ -187,8 +188,6 @@ function TopicDisplay({ topics, setTopics }) {
                   </div>
                 ))}
               </div>
-
-
           </>
         )}
       </div>

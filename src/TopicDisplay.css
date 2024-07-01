@@ -1,43 +1,43 @@
 .rectangleGroup {
-  position: absolute;
+  position: fixed;
   left: -3px;
   bottom: 0px;
   width: 335px;
-  height: 916px;
+  height: 80%;
   font-size: var(--font-size-21xl);
   overflow: hidden; /* Ensure overflow is hidden for parent */
 }
 
 .rectangleDiv {
   border-radius: 0 var(--br-31xl) 0 0;
-  position: absolute;
-  top: 0;
-  left: 3px;
+  position: fixed;
+  bottom: 0;
+  left: -3px;
   background-color: var(--color-gainsboro);
-  height: 966px;
-  width: 332px;
+  height: 80%;
+  width: 18.4%;
 }
 
 .groupChild1 {
   border-radius: 0 var(--br-31xl) 0 0;
-  position: absolute;
+  position: unset;
   top: 0;
   left: 0;
   background: linear-gradient(100.01deg, #996749, #332218);
-  height: 81px;
-  width: 332px;
+  height: 100%;
+  right: 0;
 }
 
 .rectangleContainer {
   position: absolute;
   top: 0;
-  left: 3px;
-  width: 332px;
+  left: 0px;
+  /* width: 18.4%; */
+  right: 0;
   height: 81px;
   font-size: var(--font-size-26xl);
   color: var(--color-white);
 }
-
 .topics {
   position: absolute;
   top: 10px;
@@ -108,10 +108,10 @@
 
 .notesSectionParent {
   position: absolute;
-  top: 127px;
+  bottom: 0;
   left: 373px;
   width: 1230px;
-  height: 911px;
+  height: 85%;
   font-size: var(--font-size-51xl);
 }
 
@@ -145,9 +145,9 @@
 }
 
 .groupParent {
-  position: fixed;
-  bottom: 0;
-  left: 500.1px;
+  position: relative;
+  top: 30%;
+  left: 103px;
   width: 1200.9px;
   height: 714px; /* Set a maximum height */
   overflow-y: auto; /* Add vertical scrollbar when content overflows */
