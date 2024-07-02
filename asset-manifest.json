@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Notes_taking_App/static/css/main.b5bc95fd.css",
+    "main.js": "/Notes_taking_App/static/js/main.35cbf5c7.js",
+    "static/js/453.67914649.chunk.js": "/Notes_taking_App/static/js/453.67914649.chunk.js",
+    "index.html": "/Notes_taking_App/index.html",
+    "main.b5bc95fd.css.map": "/Notes_taking_App/static/css/main.b5bc95fd.css.map",
+    "main.35cbf5c7.js.map": "/Notes_taking_App/static/js/main.35cbf5c7.js.map",
+    "453.67914649.chunk.js.map": "/Notes_taking_App/static/js/453.67914649.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b5bc95fd.css",
+    "static/js/main.35cbf5c7.js"
+  ]
+}
