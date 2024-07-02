@@ -52,13 +52,13 @@ body {
   display: inline-block;
   width: 432px;
   height: 68px;
-  cursor: pointer; /* Ensure pointer cursor to indicate clickability */
+  cursor: pointer;
 }
 
 .slide1691Item {
-  position: absolute;
-  bottom: -26%; /* Fix to the bottom */
-  right: -14%; /* Fix to the right */
-  width: 701.5px; 
+  position: fixed;
+  bottom: -48%;
+  right: -46%;
+  width: 100%;
   height: 694.8px;
 }

@@ -4,13 +4,11 @@ import TopicDisplay from './TopicDisplay';
 import './index.css';
 
 function NoteTakingApp() {
-  // Initialize topics state with data from localStorage or empty array
   const [topics, setTopics] = useState(() => {
     const storedTopics = localStorage.getItem('topics');
     return storedTopics ? JSON.parse(storedTopics) : [];
   });
 
-  // Update localStorage whenever topics state changes
   useEffect(() => {
     localStorage.setItem('topics', JSON.stringify(topics));
   }, [topics]);
@@ -43,7 +41,7 @@ function NoteTakingApp() {
     <div>
       
       <div className="notesTakingApp">Notes taking app</div>
-      <TopicInput onAddTopic={handleAddTopic} />
+
       <TopicDisplay
         topics={topics}
         setTopics={setTopics}
@@ -51,12 +49,14 @@ function NoteTakingApp() {
         onDeleteNote={handleDeleteNote}
         onDeleteTopic={handleDeleteTopic}
       />
-      {/* <img
+      <TopicInput onAddTopic={handleAddTopic} />
+      
+      <img
   className="slide1691Item"
   alt=""
   src={`${process.env.PUBLIC_URL}/group-1.svg`}
   style={{ pointerEvents: 'none' }}
-/> */}
+/>
 
     </div>
   );

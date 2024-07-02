@@ -1,49 +1,47 @@
 .rectangleParent {
-  position: absolute;
-  top: 0; /* Fix to the top */
-  right: 0; /* Fix to the right */
-  width: 533px;
-  height: 161px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 30%;
+  height: 21%;
   color: #fff;
   border-radius: 0 0 0 50px;
   background-color: #d9d9d9;
 }
-
 .newTopic {
-    position: absolute;
-    top: 8px;
-    left: 1px;
-    background: linear-gradient(180deg, #000, #666);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    display: inline-block;
-    width: 265.6px;
-    height: 59.6px;
-  }
+  position: absolute;
+  /* top: -3px; */
+  left: 4%;
+  background: linear-gradient(180deg, #000, #666);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+  /* width: 265.6px; */
+  height: 44%;
+}
 
-
-  #groupItem {
-    position: absolute;
-    top: 76.8px;
-    left: 9.8px;
-    border-radius: 0 0 0 50px;
-    width: 407.4px;
-    height: 73px;
-    background-color: #996749;
-    border: none;
-    box-sizing: border-box;
-    color: white;
-    outline: none;
-    padding-left: 30px;
-    font-size: 35px;
-    font-family: var(--font-indie-flower); /* Ensure it matches global font */
-    transition: box-shadow 0.3s ease, transform 0.2s ease; /* Smooth transition for shadow and scale */
-  }
+#groupItem {
+  position: absolute;
+  top: 50%;
+  left: 9.8px;
+  border-radius: 0 0 0 50px;
+  width: 73%;
+  height: 43%;
+  background-color: #996749;
+  border: none;
+  box-sizing: border-box;
+  color: white;
+  outline: none;
+  padding-left: 30px;
+  font-size: 35px;
+  font-family: var(--font-indie-flower);
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
   
   #groupItem:hover,
   #groupItem:active {
-    box-shadow: 0 0 30px rgba(0, 0, 0, 3); /* Shadow effect on hover and active */
-    transform: scale(0.95); /* Scale effect on active */
+    box-shadow: 0 0 30px rgba(0, 0, 0, 3); 
+    transform: scale(0.95); 
   }
   
   #groupItem::placeholder {
@@ -52,25 +50,25 @@
     display: inline-block;
     color: white;
     opacity: 0.5;
-    font-size: 35px; /* Adjust as needed */
-    font-family: var(--font-indie-flower); /* Inherit global font */
+    font-size: 35px; 
+    font-family: var(--font-indie-flower); 
   }
   
 
   .groupInner {
     position: absolute;
     background-color: var(--color-sienna);
-    height: 73px;
-    top: 76.8px;
-    left: 429px;
-    width: 104px;
-    border-radius: 0 0 0 0; /* Rounded right edge to match input */
+    height: 43%;
+    top: 50%;
+    left: 76%;
+    width: 20%;
+    border-radius: 0 0 0 0;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
     border: none;
-  }
+}
   
   .groupInner button {
     border: none;
@@ -78,13 +76,13 @@
     font-size: 100px;
     cursor: pointer;
     outline: none;
-    transition:  box-shadow 0.3s ease; /* Transition for text shadow */
+    transition:  box-shadow 0.3s ease; 
   }
   
   .groupInner:hover,
   .groupInner:active {
-    box-shadow: 0 0 30px rgba(0, 0, 0, 3); /* Shadow effect on hover and active */
-    transform: scale(0.9); /* Scale effect on active */
+    box-shadow: 0 0 30px rgba(0, 0, 0, 3); 
+    transform: scale(0.9); 
   }
   
   

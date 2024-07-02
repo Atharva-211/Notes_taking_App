@@ -3,7 +3,7 @@ import styles from './TopicDisplay.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrashAlt, faPen } from '@fortawesome/free-solid-svg-icons';
 import Modal from 'react-modal';
-import { ToastContainer, toast } from 'react-toastify';
+// import { ToastContainer, toast } from 'react-toastify';
 
 function TopicDisplay({ topics, setTopics }) {
   const [selectedTopicIndex, setSelectedTopicIndex] = useState(null);
@@ -46,12 +46,12 @@ function TopicDisplay({ topics, setTopics }) {
   };
 
   const handleAddNote = () => {
-    if (noteTitle.trim() === '') {
-      toast.error('Please enter a note title');
-      return;
-    }
+    // if (noteTitle.trim() === '') {
+    //   toast.error('Please enter a note title');
+    //   return;
+    // }
 
-    if (noteContent.trim() !== '' && selectedTopicIndex !== null) {
+    if (noteTitle.trim() !== '' && noteContent.trim() !== '' && selectedTopicIndex !== null) {
       const updatedTopics = topics.map((topic, index) =>
         index === selectedTopicIndex
           ? { ...topic, notes: [{ title: noteTitle, content: noteContent }, ...topic.notes] }
@@ -145,7 +145,7 @@ function TopicDisplay({ topics, setTopics }) {
             <li key={topicIndex} style={{ marginTop: '10px' }}>
               <div onClick={(event) => handleTopicClick(topicIndex, event)} className="topic1Parent">
                 <div className="topic1">
-                  {topic && topic.name.length > 11 ? `${topic.name.slice(0, 11)}...` : topic.name}
+                  {topic && topic.name.length > 11 ? `${topic.name.slice(0, 8)}..` : topic.name}
                 </div>
                 <div onClick={(event) => {
                   event.stopPropagation();
@@ -199,13 +199,14 @@ function TopicDisplay({ topics, setTopics }) {
         ariaHideApp={false}
         className="custom-modal2"
       >
-        <h2>Edit Topic</h2>
+        <div>Edit Topic</div>
         <input
         id="Anote2"
           type="text"
           value={topicInput}
           onChange={handleTopicInputChange}
           placeholder="Enter new topic name..."
+          maxLength="15"
         /> <br />
         <button id="addtopic2" onClick={handleSubmitEditTopic}>
           Save
@@ -222,7 +223,7 @@ function TopicDisplay({ topics, setTopics }) {
         ariaHideApp={false}
         className="custom-modal"
       >
-        <h2 id='h2'>{isEditingNote ? "Edit Note" : "Add Note"}</h2>  
+        <div id='h2'>{isEditingNote ? "Edit Note" : "Add Note"}</div>  
         <input
          id="Anote"
           type="text"
@@ -244,7 +245,7 @@ function TopicDisplay({ topics, setTopics }) {
         </div>
       </Modal>
 
-      <ToastContainer position="top-right" autoClose={3000} hideProgressBar />
+      {/* <ToastContainer position="top-right" autoClose={3000} hideProgressBar /> */}
     </div>
   );
 }
