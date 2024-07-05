@@ -53,7 +53,7 @@ const NoteTakingApp = () => {
       <img
         className="slide1691Item"
         alt=""
-        src={${process.env.PUBLIC_URL}/group-1.svg}
+        src={`${process.env.PUBLIC_URL}/group-1.svg`}
         style={{ pointerEvents: 'none' }}
       />
 
@@ -62,7 +62,7 @@ const NoteTakingApp = () => {
           <ambientLight intensity={1.5} />
           <spotLight position={[10, 10, 10]} angle={0.15} penumbra={0} />
           <ZoomableCanvas>
-            <RotatingModel url={${process.env.PUBLIC_URL}/japanese_study_desk.glb} />
+            <RotatingModel url={`${process.env.PUBLIC_URL}/japanese_study_desk.glb`} />
           </ZoomableCanvas>
           <OrbitControls
             enablePan={false}
