@@ -1,17 +1,17 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import { Canvas } from '@react-three/fiber';
+import { OrbitControls } from '@react-three/drei';
 import TopicInput from './TopicInput';
 import TopicDisplay from './TopicDisplay';
+import RotatingModel from './RotatingModel';
+import ZoomableCanvas from './ZoomableCanvas';
 import './index.css';
 
-function NoteTakingApp() {
+const NoteTakingApp = () => {
   const [topics, setTopics] = useState(() => {
     const storedTopics = localStorage.getItem('topics');
     return storedTopics ? JSON.parse(storedTopics) : [];
   });
-
-  useEffect(() => {
-    localStorage.setItem('topics', JSON.stringify(topics));
-  }, [topics]);
 
   const handleAddTopic = (topicName) => {
     const newTopic = { name: topicName, notes: [] };
@@ -39,7 +39,6 @@ function NoteTakingApp() {
 
   return (
     <div>
-      
       <div className="notesTakingApp">Notes taking app</div>
 
       <TopicDisplay
@@ -50,16 +49,34 @@ function NoteTakingApp() {
         onDeleteTopic={handleDeleteTopic}
       />
       <TopicInput onAddTopic={handleAddTopic} />
-      
+
       <img
-  className="slide1691Item"
-  alt=""
-  src={`${process.env.PUBLIC_URL}/group-1.svg`}
-  style={{ pointerEvents: 'none' }}
-/>
+        className="slide1691Item"
+        alt=""
+        src={${process.env.PUBLIC_URL}/group-1.svg}
+        style={{ pointerEvents: 'none' }}
+      />
+
+      <div className="canvas-container">
+        <Canvas>
+          <ambientLight intensity={1.5} />
+          <spotLight position={[10, 10, 10]} angle={0.15} penumbra={0} />
+          <ZoomableCanvas>
+            <RotatingModel url={${process.env.PUBLIC_URL}/japanese_study_desk.glb} />
+          </ZoomableCanvas>
+          <OrbitControls
+            enablePan={false}
+            enableZoom={false}
+            enableRotate={true} // Allow only rotation
+            minPolarAngle={Math.PI / 4}
+            maxPolarAngle={Math.PI / 1.5}
+          />
+        </Canvas>
+      </div>
+
 
     </div>
   );
-}
+};
 
 export default NoteTakingApp;

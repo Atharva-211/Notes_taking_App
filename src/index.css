@@ -62,3 +62,38 @@ body {
   width: 100%;
   height: 694.8px;
 }
+
+
+/* canvas {
+  width: 10%;
+  height: 200vh;
+  display: block;
+} */
+
+
+:root {
+  --model-rotation-x: 0.5;
+  --model-rotation-y: -1;
+  --model-rotation-z: 0;
+}
+
+.rotate-model {
+  position: relative; /* Ensure the container has relative positioning */
+}
+
+.canvas-container {
+  position: fixed;
+  bottom: -20%;
+  right: 0;
+  width: 25%; /* Adjust the width as needed */
+  height: 60%; /* Adjust the height as needed */
+  /* border: 1px solid #ccc;  */
+  cursor: move;
+}
+
+
+/* .rotate-model {
+  --model-rotation-x: 0.5; 
+  --model-rotation-y: 0.5;
+  --model-rotation-z: 0.5;
+} */
